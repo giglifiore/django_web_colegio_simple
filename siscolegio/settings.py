@@ -2,7 +2,7 @@
 from os.path import join
 import os
 
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP  # Admin Suit
+#from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP  # Admin Suit
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
