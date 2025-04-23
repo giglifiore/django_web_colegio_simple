@@ -113,7 +113,7 @@ class Clase(models.Model):
 
 class Clase_Profesor(models.Model):
 	profesor = models.ForeignKey(Perfil_Profesor, null=True, blank=True, on_delete=models.CASCADE)
-	clase = models.ForeignKey(Clase, null=True, blank=True)
+	clase = models.ForeignKey(Clase, null=True, blank=True, on_delete=models.CASCADE)
 
 	def __unicode__(self):
 		return u"%s - %s" % (self.profesor, self.clase)
