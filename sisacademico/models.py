@@ -4,6 +4,13 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator
 from django.core.exceptions import ValidationError, NON_FIELD_ERRORS
 
+class SisAcademicoPeriodo(models.Model):
+    nombre = models.CharField(max_length=100)
+    inicio = models.DateField()
+    fin = models.DateField()
+
+    def __str__(self):
+        return self.nombre
 
 class Alumno(models.Model):
 	cedula = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(9999999999)])
