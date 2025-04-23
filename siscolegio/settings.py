@@ -62,16 +62,19 @@ WSGI_APPLICATION = 'siscolegio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'your_db_name',
-        'USER': 'your_db_user',
-        'PASSWORD': 'your_db_password',
-        'HOST': 'your_db_host',  # Puede ser la URL del servicio de la base de datos en Render
-        'PORT': '5432',  # Puerto de PostgreSQL, cambia si usas MySQL
+        'NAME': os.getenv('DB_NAME', 'colegio_db_fkrs'),        # El nombre de la base de datos
+        'USER': os.getenv('DB_USER', 'colegio_db_fkrs_user'),        # El nombre de usuario de la base de datos
+        'PASSWORD': os.getenv('DB_PASSWORD', 'B66zEUfOs3k83A8PQEl0JOfDr83SELAV'),  # La contraseña de la base de datos
+        'HOST': os.getenv('DB_HOST', 'dpg-d03tjigdl3ps73c6kp2g-a'),        # La URL de la base de datos en Render
+        'PORT': os.getenv('DB_PORT', '5432'),                # El puerto, normalmente 5432
     }
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
