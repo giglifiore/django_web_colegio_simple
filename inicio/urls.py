@@ -1,14 +1,14 @@
-# -*- coding: utf-8 -*-
-from django.conf.urls import patterns, url
-
+from django.urls import path
 from inicio import views
 
-urlpatterns = patterns('',
-		url(r'^$', views.inicio, name="inicio_redirect"),
-		url(r'^inicio/$', views.inicio, name='inicio'),
-		url(r'^colegio/$', views.colegio, name='colegio'),
-		url(r'^docentes/$', views.docentes, name='docentes'),
-		url(r'^estudiantes/$', views.estudiantes, name='estudiantes'),
-		url(r'^blog/$', views.blog, name='blog'),
-		url(r'^sislogin/$', views.sislogin, name='sislogin'),
-	)
+app_name = 'inicio'
+
+urlpatterns = [
+    path('', views.inicio, name="inicio_redirect"),
+    path('inicio/', views.inicio, name='inicio'),
+    path('colegio/', views.colegio, name='colegio'),
+    path('docentes/', views.docentes, name='docentes'),
+    path('estudiantes/', views.estudiantes, name='estudiantes'),
+    path('blog/', views.blog, name='blog'),
+    path('sislogin/', views.sislogin, name='sislogin'),
+]
