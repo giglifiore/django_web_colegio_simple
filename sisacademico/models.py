@@ -71,7 +71,7 @@ class Matricula(models.Model):
 
 
 class Perfil_Profesor(models.Model):
-	usuario = models.OneToOneField(User)
+	usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 	titulo = models.CharField(max_length=250, blank=True)
 	num_contacto = models.IntegerField(null=True, blank=True)
 	status = models.CharField(max_length=150, choices=(("A", "Activo"), ("I", "Inactivo")))
