@@ -7,8 +7,8 @@ from django.http import HttpResponse
 from sisacademico.utils import obtener_perfil_profesor, obtener_clases_profesor, obtener_alumnos_clase,\
                 obtener_fila_alumno_notas, obtener_editar_valor_nota, obtener_clases_nivel, \
                 obtener_notas_alumno, obtener_notas_quimestre
-from models import Clase, Periodo, Perfil_Profesor, Alumno, Nivel, Matricula, Nota
-from forms import FormPerfilProfesor, FormEditarNotas, FormReportePeriodo, FormMatricularGrupo, FormReporteQuimestre
+from sisacademico.models import Clase, Periodo, Perfil_Profesor, Alumno, Nivel, Matricula, Nota
+from sisacademico.forms import FormPerfilProfesor, FormEditarNotas, FormReportePeriodo, FormMatricularGrupo, FormReporteQuimestre
 
 
 def authcheck(request):
