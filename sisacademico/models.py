@@ -49,8 +49,8 @@ class Nivel(models.Model):
 
 class Matricula(models.Model):
 	ano_lectivo = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
-	alumno = models.ForeignKey(Alumno)
-	nivel = models.ForeignKey(Nivel, null=True)
+	alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
+	nivel = models.ForeignKey(Nivel, null=True, on_delete=models.CASCADE)
 	status = models.CharField(max_length=150, choices=(("A", "Activo"), ("I", "Inactivo")))
 
 	def validate_unique(self, exclude=None):
@@ -75,7 +75,7 @@ class Perfil_Profesor(models.Model):
 	titulo = models.CharField(max_length=250, blank=True)
 	num_contacto = models.IntegerField(null=True, blank=True)
 	status = models.CharField(max_length=150, choices=(("A", "Activo"), ("I", "Inactivo")))
-	nivel = models.ForeignKey(Nivel, null=True, blank=True)
+	nivel = models.ForeignKey(Nivel, null=True, blank=True, on_delete=models.CASCADE)
 	nota_memo = models.TextField(blank=True)
 
 	class Meta:
@@ -100,7 +100,7 @@ class Perfil_Profesor(models.Model):
 
 class Clase(models.Model):
 	nombre = models.CharField(max_length=250)
-	nivel = models.ForeignKey(Nivel)
+	nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE)
 	descripcion = models.CharField(max_length=1000, blank=True, null=True)
 	status = models.CharField(max_length=150, choices=(("A", "Activo"), ("I", "Inactivo")))
 
@@ -112,7 +112,7 @@ class Clase(models.Model):
 
 
 class Clase_Profesor(models.Model):
-	profesor = models.ForeignKey(Perfil_Profesor, null=True, blank=True)
+	profesor = models.ForeignKey(Perfil_Profesor, null=True, blank=True, on_delete=models.CASCADE)
 	clase = models.ForeignKey(Clase, null=True, blank=True)
 
 	def __unicode__(self):
@@ -126,9 +126,9 @@ class Clase_Profesor(models.Model):
 
 class Nota(models.Model):
 	valor = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-	alumno = models.ForeignKey(Alumno)
-	periodo = models.ForeignKey('Periodo')
-	clase = models.ForeignKey(Clase)
+	alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
+	periodo = models.ForeignKey('Periodo', on_delete=models.CASCADE)
+	clase = models.ForeignKey(Clase, on_delete=models.CASCADE)
 	tipo = models.CharField(max_length=150)
 	publicada = models.BooleanField(default=False)
 
