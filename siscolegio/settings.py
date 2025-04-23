@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from os.path import join
 import os
+import django_heroku
 
 #from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP  # Admin Suit
 
