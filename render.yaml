@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: colegio-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn colegio.wsgi:application
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: colegio-db
+          property: connectionString
