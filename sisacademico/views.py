@@ -136,7 +136,7 @@ def matricular_grupo(request):
 
 			for a in alumnos:
 				if Matricula.objects.filter(nivel=nivel_obj, ano_lectivo=ano_lectivo, alumno=a).exists():
-					print "matricula de alumno %s ya existe" % (a.nombre)
+					print ("matricula de alumno %s ya existe") % (a.nombre)
 				else:
 					nueva_matricula = Matricula(nivel=nivel_obj, ano_lectivo=ano_lectivo, alumno=a)
 					nueva_matricula.save()
