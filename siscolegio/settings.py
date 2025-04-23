@@ -64,8 +64,12 @@ WSGI_APPLICATION = 'siscolegio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_db_name',
+        'USER': 'your_db_user',
+        'PASSWORD': 'your_db_password',
+        'HOST': 'your_db_host',  # Puede ser la URL del servicio de la base de datos en Render
+        'PORT': '5432',  # Puerto de PostgreSQL, cambia si usas MySQL
     }
 }
 
