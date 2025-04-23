@@ -40,7 +40,7 @@ def calcular_promedio_notas(notas):
 	notas_promedio_parcial = []
 	notas_promedio_final = []
 
-	for nota in notas.itervalues():
+	for nota in notas.values():
 		if nota.valor > 0:
 			if not nota.publicada:
 				notas_promedio_parcial.append(int(nota.valor))
@@ -96,7 +96,7 @@ def is_number(s):
 def calcular_promedio_reporte_alumno(notas):
 	# recibe el diccionario de obtener_notas_alumno
 	notas_promedio = []
-	for nota in notas.itervalues():
+	for nota in notas.values():
 		if is_number(nota):
 			notas_promedio.append(float(nota))
 
@@ -111,11 +111,10 @@ def calcular_promedio_reporte_alumno(notas):
 
 
 def obtener_notas_alumno(alumno, clases, periodo):
-	notas = []
-	for clase in clases:
-		obtener_notas_periodo(alumno, clase, periodo)
-
-	return notas
+    notas = []
+    for clase in clases:
+        notas.append(obtener_notas_periodo(alumno, clase, periodo))
+    return notas
 
 
 def obtener_notas_periodo(alumno, clase, periodo):
