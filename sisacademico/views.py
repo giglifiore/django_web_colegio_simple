@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
-from utils import obtener_perfil_profesor, obtener_clases_profesor, obtener_alumnos_clase,\
+from sisacademico.utils import obtener_perfil_profesor, obtener_clases_profesor, obtener_alumnos_clase,\
                 obtener_fila_alumno_notas, obtener_editar_valor_nota, obtener_clases_nivel, \
                 obtener_notas_alumno, obtener_notas_quimestre
 from models import Clase, Periodo, Perfil_Profesor, Alumno, Nivel, Matricula, Nota
