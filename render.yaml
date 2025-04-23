@@ -1,11 +1,19 @@
 services:
   - type: web
-    name: colegio-app
+    name: django-web-colegio-simple
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn colegio.wsgi:application
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate --noinput
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn colegio_simple.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: colegio-db
-          property: connectionString
+      - key: DJANGO_SETTINGS_MODULE
+        value: colegio_simple.settings
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: SECRET_KEY
+        value: tu_clave_secreta_aqui
+      - key: DEBUG
+        value: 'False'
+
