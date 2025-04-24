@@ -6,6 +6,7 @@ services:
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
     startCommand: |
+      python manage.py makemigrations sisacademico
       python manage.py migrate --noinput
       gunicorn colegio_simple.wsgi:application
 
