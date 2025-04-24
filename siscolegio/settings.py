@@ -9,6 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = (
     join(BASE_DIR,  'templates'),
+    'APP_DIRS': True,
 )
 
 # login required redirect
