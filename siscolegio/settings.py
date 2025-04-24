@@ -7,10 +7,21 @@ import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-TEMPLATE_DIRS = (
-    join(BASE_DIR,  'templates'),
-    'APP_DIRS': True
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Puedes dejar vacío si no usas templates globales
+        'APP_DIRS': True,  # Activa búsqueda en carpetas templates dentro de las apps
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 # login required redirect
 LOGIN_URL = 'inicio:sislogin'
