@@ -4,7 +4,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 
 from sisacademico import views
-
+app_name = 'sisacademico'
 urlpatterns = [
     re_path(r'^alumno_notas/$', views.reporte_alumno_notas, name='alumno_notas'),
     re_path(r'^reporte_quimestre/$', views.reporte_quimestre, name='reporte_quimestre'),
