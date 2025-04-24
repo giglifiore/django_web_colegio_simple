@@ -10,6 +10,8 @@ from sisacademico.utils import obtener_perfil_profesor, obtener_clases_profesor,
 from sisacademico.models import Clase, Periodo, Perfil_Profesor, Alumno, Nivel, Matricula, Nota
 from sisacademico.forms import FormPerfilProfesor, FormEditarNotas, FormReportePeriodo, FormMatricularGrupo, FormReporteQuimestre
 
+def inicio(request):
+    return render(request, 'inicio/inicio.html')
 
 def authcheck(request):
 	# standard auth de Django. Para usuarios especiales
